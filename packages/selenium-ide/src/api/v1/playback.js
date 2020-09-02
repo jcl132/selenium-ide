@@ -75,4 +75,9 @@ router.put('/var', (req, res) => {
   res(true)
 })
 
+router.post('/play', (req, res) => {
+  PlaybackState.playTestOrResume()
+  res(true)
+})
+
 export default router

@@ -1,7 +1,7 @@
 {
   "description": "Selenium Record and Playback tool for ease of getting acquainted with Selenium WebDriver.",
   "manifest_version": 2,
-  "name": "Selenium IDE",
+  "name": "Selenium IDE - Harbor WebDriver Fork",
   "version": "3.17.0",
   "version_name": "3.17.0",
   "homepage_url": "https://github.com/SeleniumHQ/selenium-ide",

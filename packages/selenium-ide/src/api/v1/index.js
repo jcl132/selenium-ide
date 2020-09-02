@@ -29,6 +29,7 @@ import WindowSession from '../../neo/IO/window-session'
 import ModalState from '../../neo/stores/view/ModalState'
 import { loadJSProject } from '../../neo/IO/filesystem'
 import manager from '../../plugin/manager'
+import Command from '../../neo/models/Command'
 
 const router = new Router()
 
@@ -218,6 +219,11 @@ router.post('/project', (req, res) => {
     }
     res(false)
   })
+})
+
+router.post('/add_command', (req, res) => {
+  UiState.selectedTest.test.addCommand(new Command(undefined, req.command, req.target, req.value))
+  res(true)
 })
 
 router.use('/playback', playbackRouter)

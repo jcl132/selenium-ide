@@ -76,7 +76,7 @@ router.put('/var', (req, res) => {
 })
 
 router.post('/play', (req, res) => {
-  PlaybackState.playTestOrResume()
+  PlaybackState.startPlaying()
   res(true)
 })
 

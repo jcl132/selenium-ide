@@ -25,6 +25,7 @@ import recordRouter from './record'
 import exportRouter from './export'
 import popupRouter from './popup'
 import UiState from '../../neo/stores/view/UiState'
+import PlaybackState from '../../neo/stores/view/PlaybackState'
 import WindowSession from '../../neo/IO/window-session'
 import ModalState from '../../neo/stores/view/ModalState'
 import { loadJSProject } from '../../neo/IO/filesystem'
@@ -222,7 +223,9 @@ router.post('/project', (req, res) => {
 })
 
 router.post('/add_command', (req, res) => {
-  UiState.selectedTest.test.addCommand(new Command(undefined, req.command, req.target, req.value))
+  let command = new Command(undefined, req.command, req.target, req.value)
+  UiState.selectedTest.test.addCommand(command)
+  PlaybackState.startPlaying(command, { playFromHere: true })
   res(true)
 })
 
